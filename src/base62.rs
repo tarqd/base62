@@ -82,7 +82,7 @@ pub fn encode<T: Into<u128>>(num: T) -> String {
 ///}
 ///```
 pub fn decode<T: AsRef<[u8]>>(input: T) -> Result<u128, DecodeError> {
-    let mut result = 0;
+    let mut result = 0u128;
     let input = input.as_ref();
 
     for (i, c) in input.iter().rev().enumerate() {
