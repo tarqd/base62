@@ -89,7 +89,7 @@ pub fn decode<T: AsRef<[u8]>>(input: T) -> Result<u128, DecodeError> {
         let num = BASE.checked_pow(i as u32).ok_or(ArithmeticOverflow)?;
         match ALPHABET.binary_search(&c) {
             Ok(v) => match (v as u128).checked_mul(num) {
-                Some(z) => result += z,
+                Some(z) => result = result.checked_add(z).ok_or(ArithmeticOverflow)?,
                 None => return Err(ArithmeticOverflow),
             },
             Err(_e) => {
