@@ -1,0 +1,5 @@
+projKey: you-are-lost
+contextLines: true
+aliases: 
+  - type: camelCase
+  - type: snakecase
